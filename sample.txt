@@ -1,0 +1,19 @@
+Sample document: Understanding RAG chatbots
+
+What is RAG?
+RAG stands for Retrieval-Augmented Generation. A normal language model only knows what it learned during training. A RAG system lets the model use your own documents by first retrieving the relevant passages and then generating an answer from them. This is like an open-book exam: the model looks up the right pages before writing its answer.
+
+What is a chunk?
+A chunk is a small piece of a document, usually a few hundred characters long. Long documents are split into chunks because a model can only read a limited amount of text at once, and because searching small pieces gives more precise results. Neighbouring chunks overlap slightly so that no sentence is lost at the boundary.
+
+What is an embedding?
+An embedding is a list of numbers that captures the meaning of a piece of text. Texts with similar meaning get similar numbers, so the question "How do I recover my account?" can match a passage titled "Resetting your password" even though the words differ.
+
+What is a vector database?
+A vector database stores embeddings and quickly finds the ones closest to a question. Popular examples are FAISS, Chroma and Pinecone. For small projects, a simple matrix of numbers and a dot product is enough.
+
+Why can a RAG chatbot still make mistakes?
+If the retrieval step finds the wrong passages, the model answers from the wrong information. Scanned PDFs without a text layer cannot be read at all. Good chunk sizes and clear questions improve results.
+
+What is offline mode in this project?
+When no OpenAI API key is provided, this chatbot uses TF-IDF keyword search. It needs no internet and no payment, and it shows the most relevant passages from your document instead of a written answer.
